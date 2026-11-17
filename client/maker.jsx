@@ -24,7 +24,7 @@ const DomoForm = (props) => {
         <form id="domoForm"
             onSubmit={(e) => handleDomo(e,props.triggerReload)}
             name="domoForm"
-            actions="/maker"
+            action="/maker"
             method="POST"
             className="domoForm"
         >
@@ -58,7 +58,7 @@ const DomoList = (props) => {
     if(domoLength === 0){
         return(
             <div className="domoList">
-                <h3 classname="emptyDomo">No Domos Yet!</h3>
+                <h3 className="emptyDomo">No Domos Yet!</h3>
             </div>
         );
     }
@@ -67,8 +67,8 @@ const DomoList = (props) => {
         return (
             <div key={domo.id} className="domo">
                 <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
-                <h3 classname="domoName">Name: {domo.name}</h3>
-                <h3 classname="domoAge">age: {domo.age}</h3>
+                <h3 className="domoName">Name: {domo.name}</h3>
+                <h3 className="domoAge">age: {domo.age}</h3>
             </div>
         );
     });
