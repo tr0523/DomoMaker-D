@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const _ = require('underscore');
 
 const setName = (name) => _.escape(name).trim();
+const setRank = (rank) => _.escape(rank).trim();
 
 const DomoSchema = new mongoose.Schema({
     name: {
@@ -14,6 +15,12 @@ const DomoSchema = new mongoose.Schema({
         type: Number,
         min: 0,
         required: true,
+    },
+    rank: {
+        type: String,
+        required: true,
+        trim: true,
+        set: setRank,
     },
     owner: {
         type: mongoose.Schema.ObjectId,
@@ -29,6 +36,7 @@ const DomoSchema = new mongoose.Schema({
 DomoSchema.statics.toAPI = (doc) => ({
     name: doc.name,
     age: doc.age,
+    rank: doc.rank,
 });
 
 const DomoModel = mongoose.model('Domo', DomoSchema);
